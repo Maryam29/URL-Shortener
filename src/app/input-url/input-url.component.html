@@ -1,0 +1,52 @@
+<h4>Welcome to the URL shortening Service</h4>
+<div class="row">
+    <div class="col-md-10">
+        <div class="form-group">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter the link to shorten it" 
+            [(ngModel)]="longurl"
+            #url="ngModel"/>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" (click)="onShortenURL()">Shorten URL</button>
+        </div>
+        <div class="col-md-4" *ngIf="!shorurl">
+            Result: 
+            <a [routerLink]="['/',shorturl]"  [target]="'_blank'">
+             {{shorturl}}
+          </a>
+        </div>
+</div>
+
+<input type="file" class="upload" (change)="changeListener($event.target.files)">
+
+ <div class="row">
+   <div class="col-md-12">
+      <table class="table table-bordered table-striped table-condensed" *ngIf="allurls.length>0">
+          <tr><th></th><th>Original URL</th><th>ShortURL</th><th>Created At</th></tr>
+          <tr *ngFor="let url of allurls; let j=index">
+            <td>
+                <input type="checkbox" [checked]="isChecked[j]" (change)="ToggleSelection(j)">
+            </td>
+            <td>
+              <a [href]='url.OriginalURL'  [target]="'_blank'">
+                  {{url.OriginalURL}}
+             </a>
+            </td>
+            <td>
+              <a [routerLink]="['/',url.ShortURL]"  [target]="'_blank'">
+                {{url.ShortURL}}
+             </a>
+            </td>
+            <td>
+              {{url.updatedAt | date:'mediumDate'}}
+            </td>
+          </tr>
+        </table>
+        <button class="btn btn-danger" *ngIf="allurls.length>0" (click)="DeleteURLs()">Delete URLs</button>
+   </div>
+ </div>
+
