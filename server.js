@@ -102,23 +102,6 @@ app.post('/deleteURLs',async(req,res) => {
          });
   });
 
-app.post('/fetchOriginalURL',async(req,res) => {
-    Database.connectToServer(async(err)=>{
-             if(err)
-             throw err;
-             
-             try{
-               var shorturl = req.body.shorturl;
-                 var rows = await Database.findOne('URLShortener',{ShortURL: shorturl});
-                 console.log(rows);
-                 return res.send(rows);
-             }
-             catch(e){
-                 console.log(e);
-                 throw new Error(e);
-             }
-         });
-  });
 app.get('*', (req, res) => {
     console.log("Inside *")
     res.sendFile(path.join(__dirname, 'public/index.html'));
