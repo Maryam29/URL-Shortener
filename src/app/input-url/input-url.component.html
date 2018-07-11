@@ -14,15 +14,16 @@
         <div class="col-md-2">
             <button class="btn btn-primary" (click)="onShortenURL()">Shorten URL</button>
         </div>
-        <div class="col-md-4" *ngIf="!shorturl">
+        <div class="col-md-4" *ngIf="shorturl">
             Output: 
             <a [routerLink]="['/',shorturl]"  [target]="'_blank'">
              {{shorturl}}
           </a>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10" style="margin:5px">
           <input type="file" class="upload" (change)="changeListener($event.target.files)">
         </div>
+        <br>
 </div>
 
 
@@ -50,7 +51,7 @@
             </td>
           </tr>
         </table>
-        <button class="btn btn-danger" *ngIf="allurls.length>0" (click)="DeleteURLs()">Delete URLs</button>
+        <button class="btn btn-danger pull-right" *ngIf="allurls.length>0" (click)="DeleteURLs()">Delete URLs</button>
    </div>
  </div>
 
