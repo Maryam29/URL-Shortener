@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/getURLshortened', async(req, res)=>{
 const updatedAt =  new Date();
-const ShortURL = "/" + shortid.generate();
+const ShortURL = shortid.generate();
 const OriginalURL = req.body.originalUrl;
 //console.log(OriginalURL);
 

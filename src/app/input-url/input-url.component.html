@@ -17,7 +17,7 @@
         <div class="col-md-4" *ngIf="shorturl">
             Output: 
             <a [routerLink]="['/',shorturl]"  [target]="'_blank'">
-             {{shorturl}}
+             /{{shorturl}}
           </a>
         </div>
         <div class="col-md-10" style="margin:5px">
@@ -43,7 +43,7 @@
             </td>
             <td>
               <a [routerLink]="['/',url.ShortURL]"  [target]="'_blank'">
-                {{url.ShortURL}}
+                /{{url.ShortURL}}
              </a>
             </td>
             <td>
