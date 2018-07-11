@@ -8,6 +8,7 @@
     "build": "ng build --output-path=public",
     "serve-api": "nodemon server.js",
     "test": "ng test",
+    "postinstall": "ng build --prod",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
   },
