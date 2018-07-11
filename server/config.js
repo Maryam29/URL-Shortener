@@ -3,7 +3,7 @@ ObjectID = require('mongodb').ObjectID;
 var _db;
 
 const connectToServer = (callback)=>{
-var url = 'mongodb://localhost:27017/';
+var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/';
 
 MongoClient.connect(url,(err,db)=>{
     _db = db.db("URLShortener");
